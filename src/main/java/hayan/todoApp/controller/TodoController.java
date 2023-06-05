@@ -16,6 +16,7 @@ import static org.springframework.http.HttpStatus.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/")
 public class TodoController {
 
     private final TodoService todoService;

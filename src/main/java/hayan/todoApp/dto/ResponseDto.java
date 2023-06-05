@@ -1,11 +1,11 @@
 package hayan.todoApp.dto;
 
 import hayan.todoApp.domain.Todos;
+import lombok.Getter;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
+@Getter
 public class ResponseDto {
 
     private Long id;
