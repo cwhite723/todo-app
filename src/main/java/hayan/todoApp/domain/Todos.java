@@ -15,12 +15,9 @@ public class Todos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-
     private String title;
-
     @Column(name = "todo_order")
     private Integer todoOrder;
-
     private Boolean completed;
 
     @Builder
