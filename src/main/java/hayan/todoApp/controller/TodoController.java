@@ -4,6 +4,7 @@ import hayan.todoApp.dto.PostRequestDto;
 import hayan.todoApp.dto.ResponseDto;
 import hayan.todoApp.dto.UpdateRequestDto;
 import hayan.todoApp.service.TodoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class TodoController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public ResponseDto post(@RequestBody PostRequestDto postRequestDto) {
+    public ResponseDto post(@Valid @RequestBody PostRequestDto postRequestDto) {
         return todoService.post(postRequestDto);
     }
 
@@ -39,7 +40,7 @@ public class TodoController {
 
     @PatchMapping("/{id}")
     @ResponseStatus(OK)
-    public ResponseDto update(@PathVariable Long id, @RequestBody UpdateRequestDto requestDto) {
+    public ResponseDto update(@PathVariable Long id, @Valid @RequestBody UpdateRequestDto requestDto) {
         return todoService.update(id, requestDto);
     }
 
