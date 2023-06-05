@@ -28,12 +28,14 @@ public class TodoService {
         return ResponseDto.of(todo);
     }
 
+    @Transactional(readOnly = true)
     public List<ResponseDto> findAll() {
         List<Todos> todos = todoRepository.findAll();
 
         return toResponses(todos);
     }
 
+    @Transactional(readOnly = true)
     public ResponseDto findById(Long id) {
         validate(id);
         Todos todo = todoRepository.findById(id).get();
