@@ -5,7 +5,6 @@ import hayan.todo.dto.PostRequestDto;
 import hayan.todo.dto.ResponseDto;
 import hayan.todo.dto.UpdateRequestDto;
 import hayan.todo.exception.CustomException;
-import hayan.todo.exception.ErrorInformation;
 import hayan.todo.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -39,13 +38,13 @@ public class TodoService {
 
     @Transactional(readOnly = true)
     public ResponseDto findById(Long id) {
-        Todos todo = getTodosById(id);
+        Todos todo = getTodoById(id);
 
         return ResponseDto.of(todo);
     }
 
     public ResponseDto update(Long id, UpdateRequestDto requestDto) {
-        Todos todo = getTodosById(id);
+        Todos todo = getTodoById(id);
         todo.update(requestDto.getTitle(), requestDto.getCompleted());
 
         return ResponseDto.of(todo);
@@ -56,11 +55,11 @@ public class TodoService {
     }
 
     public void deleteById(Long id) {
-        Todos todo = getTodosById(id);
+        Todos todo = getTodoById(id);
         todoRepository.delete(todo);
     }
 
-    private Todos getTodosById(Long id) {
+    private Todos getTodoById(Long id) {
         return todoRepository.findById(id)
                 .orElseThrow(() -> new CustomException(POST_NOT_FOUND));
     }
