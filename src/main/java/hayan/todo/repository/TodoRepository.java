@@ -1,6 +1,6 @@
-package hayan.todoApp.repository;
+package hayan.todo.repository;
 
-import hayan.todoApp.domain.Todos;
+import hayan.todo.domain.Todos;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TodoRepository extends JpaRepository<Todos, Long> {

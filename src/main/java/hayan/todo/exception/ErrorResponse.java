@@ -1,4 +1,4 @@
-package hayan.todoApp.exception;
+package hayan.todo.exception;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AccessLevel;

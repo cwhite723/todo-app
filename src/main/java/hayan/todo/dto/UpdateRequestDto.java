@@ -1,4 +1,4 @@
-package hayan.todoApp.dto;
+package hayan.todo.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

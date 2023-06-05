@@ -1,6 +1,6 @@
-package hayan.todoApp.dto;
+package hayan.todo.dto;
 
-import hayan.todoApp.domain.Todos;
+import hayan.todo.domain.Todos;
 import lombok.Getter;
 
 import java.util.Optional;

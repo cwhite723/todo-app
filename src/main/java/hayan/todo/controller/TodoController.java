@@ -1,9 +1,9 @@
-package hayan.todoApp.controller;
+package hayan.todo.controller;
 
-import hayan.todoApp.dto.PostRequestDto;
-import hayan.todoApp.dto.ResponseDto;
-import hayan.todoApp.dto.UpdateRequestDto;
-import hayan.todoApp.service.TodoService;
+import hayan.todo.dto.PostRequestDto;
+import hayan.todo.dto.ResponseDto;
+import hayan.todo.dto.UpdateRequestDto;
+import hayan.todo.service.TodoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

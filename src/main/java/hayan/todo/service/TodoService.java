@@ -1,12 +1,12 @@
-package hayan.todoApp.service;
+package hayan.todo.service;
 
-import hayan.todoApp.domain.Todos;
-import hayan.todoApp.dto.PostRequestDto;
-import hayan.todoApp.dto.ResponseDto;
-import hayan.todoApp.dto.UpdateRequestDto;
-import hayan.todoApp.exception.CustomException;
-import hayan.todoApp.exception.ErrorInformation;
-import hayan.todoApp.repository.TodoRepository;
+import hayan.todo.domain.Todos;
+import hayan.todo.dto.PostRequestDto;
+import hayan.todo.dto.ResponseDto;
+import hayan.todo.dto.UpdateRequestDto;
+import hayan.todo.exception.CustomException;
+import hayan.todo.exception.ErrorInformation;
+import hayan.todo.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package hayan.todoApp.domain;
+package hayan.todo.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
