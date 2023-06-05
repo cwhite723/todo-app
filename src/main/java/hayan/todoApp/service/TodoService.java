@@ -4,6 +4,8 @@ import hayan.todoApp.domain.Todos;
 import hayan.todoApp.dto.PostRequestDto;
 import hayan.todoApp.dto.ResponseDto;
 import hayan.todoApp.dto.UpdateRequestDto;
+import hayan.todoApp.exception.CustomException;
+import hayan.todoApp.exception.ErrorInformation;
 import hayan.todoApp.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -60,7 +62,7 @@ public class TodoService {
         final boolean isExist = todoRepository.existsById(id);
         if (!isExist) {
             // TODO: 예외 처리 구현 후 수정
-            throw new Exception();
+            throw new CustomException(ErrorInformation.POST_NOT_FOUND);
         }
     }
 
