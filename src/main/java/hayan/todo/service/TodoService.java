@@ -14,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static hayan.todo.exception.ErrorInformation.*;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -37,15 +39,13 @@ public class TodoService {
 
     @Transactional(readOnly = true)
     public ResponseDto findById(Long id) {
-        validate(id);
-        Todos todo = todoRepository.findById(id).get();
+        Todos todo = getTodosById(id);
 
         return ResponseDto.of(todo);
     }
 
     public ResponseDto update(Long id, UpdateRequestDto requestDto) {
-        validate(id);
-        Todos todo = todoRepository.findById(id).get();
+        Todos todo = getTodosById(id);
         todo.update(requestDto.getTitle(), requestDto.getCompleted());
 
         return ResponseDto.of(todo);
@@ -56,16 +56,13 @@ public class TodoService {
     }
 
     public void deleteById(Long id) {
-        validate(id);
-        todoRepository.deleteById(id);
+        Todos todo = getTodosById(id);
+        todoRepository.delete(todo);
     }
 
-    private void validate(Long id) {
-        final boolean isExist = todoRepository.existsById(id);
-        if (!isExist) {
-            // TODO: 예외 처리 구현 후 수정
-            throw new CustomException(ErrorInformation.POST_NOT_FOUND);
-        }
+    private Todos getTodosById(Long id) {
+        return todoRepository.findById(id)
+                .orElseThrow(() -> new CustomException(POST_NOT_FOUND));
     }
 
     private Todos toEntity(PostRequestDto requestDto) {
