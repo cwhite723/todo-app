@@ -6,7 +6,6 @@ import hayan.todo.dto.UpdateRequestDto;
 import hayan.todo.service.TodoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,9 +14,8 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/")
+@RequestMapping("/todos")
 public class TodoController {
-
     private final TodoService todoService;
 
     @PostMapping
