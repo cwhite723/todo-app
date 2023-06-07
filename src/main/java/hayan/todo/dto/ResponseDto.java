@@ -23,8 +23,4 @@ public class ResponseDto {
     public static ResponseDto of(Todos data) {
         return new ResponseDto(data);
     }
-
-    public static ResponseDto of(Optional<Todos> data) {
-        return new ResponseDto(data.get());
-    }
 }
